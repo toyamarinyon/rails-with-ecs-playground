@@ -1,0 +1,18 @@
+version: '3'
+services:
+  db:
+    image: postgres
+  rails: &base
+    build: .
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    volumes:
+      - .:/myapp
+    ports:
+      - "5555:3000"
+    depends_on:
+      - db
+  webpacker:
+    <<: *base
+    command: bundle exec webpack-dev-server
+    ports:
+      - "8080:8080"
