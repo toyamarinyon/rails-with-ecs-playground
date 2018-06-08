@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ip address:</strong>
+  <%= @ip_log.ip_address %>
+</p>
+
+<%= link_to 'Edit', edit_ip_log_path(@ip_log) %> |
+<%= link_to 'Back', ip_logs_path %>
